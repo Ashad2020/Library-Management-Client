@@ -8,6 +8,7 @@ import AllBooks from "../Pages/AllBooks/AllBooks";
 import BorrowBook from "../Pages/BorrowBook/BorrowBook";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../Pages/Error/Error";
+import DetailsCard from "../Components/BookDetails/DetailsCard";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
             <BorrowBook></BorrowBook>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "bookdetails/:id",
+        element: <DetailsCard></DetailsCard>,
       },
     ],
   },

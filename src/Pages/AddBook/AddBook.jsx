@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form";
+import useAxios from "../../Hooks/useAxios";
+import toast from "react-hot-toast";
 export default function AddBook() {
+  const axios = useAxios();
   const {
     register,
     handleSubmit,
@@ -14,6 +17,19 @@ export default function AddBook() {
       rating: "Rating",
     },
   });
+
+  const callback = async (data) => {
+    console.log(data);
+    const res = await axios.post("/addbook", data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (res.data?.data?.insertedId) {
+      toast.success("Product added successfully");
+    }
+    console.log(res);
+  };
 
   /*
    {
@@ -31,12 +47,7 @@ export default function AddBook() {
   return (
     <div className="hero bg-base-200 py-12">
       <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
-        <form
-          onSubmit={handleSubmit((data) => {
-            console.log(data);
-          })}
-          className="card-body"
-        >
+        <form onSubmit={handleSubmit(callback)} className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Image</span>
