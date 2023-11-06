@@ -14,7 +14,7 @@ export default function Home() {
     queryKey: ["categories"],
     queryFn: getCategories,
   });
-  console.log(data);
+  // console.log(data);
 
   if (isLoading) {
     return <p>Loading</p>;

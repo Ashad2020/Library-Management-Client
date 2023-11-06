@@ -11,7 +11,7 @@ export default function AllBooks() {
   };
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["categories"],
+    queryKey: ["allbooks"],
     queryFn: getAllBooks,
   });
   let allbooks = data?.data;

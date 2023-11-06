@@ -3,7 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 
 export default function Navbar() {
   let { user, logOut } = useAuth();
-  console.log(user);
+  // console.log(user);
 
   return (
     <div className="navbar bg-[#F2F2F2] text-xl px-8">

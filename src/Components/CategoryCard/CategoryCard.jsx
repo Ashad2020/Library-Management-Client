@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function CategoryCard({ category }) {
   const { _id, name, img } = category;
   return (
-    <Link to={`/brandDetails/${_id}`}>
+    <Link to={`/categoryDetails/${_id}`}>
       <div className="card bg-[#F0F0F0] shadow-xl ">
         <figure className="px-2 pt-2">
           <img

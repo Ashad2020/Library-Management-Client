@@ -29,10 +29,7 @@ export default function BookCard({ book }) {
           <Rating initialRating={rating} readonly />
         </div>
         <div className="card-actions">
-          <Link to={`/updateproduct/${_id}`}>
-            <button className="btn btn-primary">Update</button>
-          </Link>
-          <Link to={`/productdetails/${_id}`}>
+          <Link to={`/bookdetails/${_id}`}>
             <button className="btn btn-primary">Details</button>
           </Link>
         </div>

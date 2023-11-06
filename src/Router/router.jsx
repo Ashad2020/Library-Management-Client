@@ -9,6 +9,8 @@ import BorrowBook from "../Pages/BorrowBook/BorrowBook";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../Pages/Error/Error";
 import DetailsCard from "../Components/BookDetails/DetailsCard";
+import CategoryDetails from "../Pages/CategoryDetails/CategoryDetails";
+import ReadBook from "../Components/BookCard/ReadBook";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,12 +38,20 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "borrowbook",
+        path: `borrowbook/:id`,
         element: (
           <PrivateRoute>
             <BorrowBook></BorrowBook>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/categoryDetails/:id",
+        element: <CategoryDetails></CategoryDetails>,
+      },
+      {
+        path: "/readbook",
+        element: <ReadBook></ReadBook>,
       },
       {
         path: "bookdetails/:id",
