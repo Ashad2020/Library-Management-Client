@@ -2,10 +2,12 @@ import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
+import useAxios from "../../Hooks/useAxios";
 
 export default function SignIn() {
   const navigate = useNavigate();
   const { loginUser } = useAuth();
+  const axios = useAxios();
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -22,6 +24,7 @@ export default function SignIn() {
       .then((res) => {
         toast.success("Logged In successfully", { id: toastId });
         if (res.user?.email) {
+          axios.post("/auth/access-token", { email: res.user?.email });
           navigate("/");
         }
       })

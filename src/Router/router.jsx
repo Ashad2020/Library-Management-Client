@@ -7,10 +7,12 @@ import AddBook from "../Pages/AddBook/AddBook";
 import AllBooks from "../Pages/AllBooks/AllBooks";
 import BorrowBook from "../Pages/BorrowBook/BorrowBook";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Error from "../Pages/Error/Error";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",

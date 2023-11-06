@@ -24,7 +24,6 @@ export default function SignUp() {
 
     createUser(email, password)
       .then(() => {
-        console.log(auth.currentUser);
         return updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photoURL,
