@@ -1,42 +1,53 @@
 import { useParams } from "react-router-dom";
 import useAxios from "../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
+import BorrowBookCard from "../../Components/BorrowedBookCard/BorrowBookCard";
+import { useEffect, useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 
 export default function BorrowBook() {
+  const { user } = useAuth();
+  const [borrowedBooks, setBorrowedBooks] = useState([]);
   const axios = useAxios();
   const { id } = useParams();
 
   const getBook = async () => {
-    const res = await axios.get(`/book/${id}`);
+    const res = await axios.get(`/borrowedbooks/${user?.email}`);
     return res;
   };
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: [id],
+    queryKey: ["borrowedbooks"],
     queryFn: getBook,
   });
+  useEffect(() => {
+    setBorrowedBooks(data?.data);
+  }, [data]);
+
   return (
     <>
-      <button
-        className="btn"
-        onClick={() => document.getElementById("my_modal_5").showModal()}
-      >
-        open modal
-      </button>
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">
-            Press ESC key or click the button below to close
-          </p>
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn">Close</button>
-            </form>
+      {isLoading && <p>Loading.......</p>}
+      {!isLoading && (
+        <div>
+          <p>Borrowed books length: {borrowedBooks?.length}</p>
+          <div className="p-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {borrowedBooks?.length ? (
+              borrowedBooks?.map((book) => (
+                <BorrowBookCard
+                  key={book._id}
+                  borrowedBooks={borrowedBooks}
+                  setBorrowedBooks={setBorrowedBooks}
+                  book={book}
+                ></BorrowBookCard>
+              ))
+            ) : (
+              <h2 className="text-5xl text-center col-span-full">
+                You have not borrowed any books yet!
+              </h2>
+            )}
           </div>
         </div>
-      </dialog>
+      )}
     </>
   );
 }

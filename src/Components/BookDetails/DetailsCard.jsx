@@ -1,10 +1,11 @@
 import useAxios from "../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
-import BorrowBook from "../../Pages/BorrowBook/BorrowBook";
 import { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 
 export default function DetailsCard() {
+  const { user } = useAuth();
   const axios = useAxios();
   const { id } = useParams();
 
@@ -35,7 +36,27 @@ export default function DetailsCard() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Return date submitted:", returnDate);
+    const update = {
+      id: id,
+      email: user.email,
+      displayName: user.displayName,
+      returnDate,
+    };
+
+    console.log(update);
+    axios
+      .post("/borrowbook", update, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
     closeModal();
   };
 
@@ -56,9 +77,22 @@ export default function DetailsCard() {
             <p>{data?.data?.description}</p>
             <div className="card-actions">
               <div>
-                <button className="btn btn-primary" onClick={openModal}>
-                  Open modal
-                </button>
+                {data?.data?.quantity > 0 && (
+                  <button className="btn btn-primary" onClick={openModal}>
+                    Open modal
+                  </button>
+                )}
+                {parseInt(data?.data?.quantity) === 0 && (
+                  <div className="cursor-not-allowed">
+                    <button
+                      disabled
+                      className="btn btn-primary"
+                      onClick={openModal}
+                    >
+                      Open modal
+                    </button>
+                  </div>
+                )}
                 {isModalOpen && (
                   <dialog
                     id="my_modal_5"
@@ -75,6 +109,7 @@ export default function DetailsCard() {
                           Return Date:
                           <input
                             className="mx-4"
+                            required
                             type="date"
                             value={returnDate}
                             onChange={handleReturnDateChange}

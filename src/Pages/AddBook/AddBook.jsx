@@ -19,8 +19,10 @@ export default function AddBook() {
   });
 
   const callback = async (data) => {
-    console.log(data);
-    const res = await axios.post("/addbook", data, {
+    // console.log(data);
+    const quantity = Number(data.quantity);
+    const inputObj = { ...data, quantity };
+    const res = await axios.post("/addbook", inputObj, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -28,7 +30,6 @@ export default function AddBook() {
     if (res.data?.data?.insertedId) {
       toast.success("Product added successfully");
     }
-    console.log(res);
   };
 
   /*
