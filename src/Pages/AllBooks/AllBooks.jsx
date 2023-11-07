@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../Hooks/useAxios";
-import BookCard from "../../Components/BookCard/BookCard";
+import BookCardAll from "../../Components/CardForAllBook/BookCardAll";
 
 export default function AllBooks() {
   const axios = useAxios();
@@ -22,7 +22,7 @@ export default function AllBooks() {
         ? allbooks.length > 0 && (
             <div className="p-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {allbooks.map((book) => (
-                <BookCard key={book._id} book={book} />
+                <BookCardAll key={book._id} book={book} />
               ))}
             </div>
           )

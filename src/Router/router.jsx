@@ -11,6 +11,7 @@ import Error from "../Pages/Error/Error";
 import DetailsCard from "../Components/BookDetails/DetailsCard";
 import CategoryDetails from "../Pages/CategoryDetails/CategoryDetails";
 import ReadBook from "../Components/BookCard/ReadBook";
+import UpdateBook from "../Pages/UpdateBook/UpdateBook";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +27,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddBook></AddBook>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: `updatebook/:id`,
+        element: (
+          <PrivateRoute>
+            <UpdateBook></UpdateBook>
           </PrivateRoute>
         ),
       },
