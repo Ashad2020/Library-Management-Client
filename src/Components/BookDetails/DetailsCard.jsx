@@ -3,6 +3,20 @@ import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 export default function DetailsCard() {
   const { user } = useAuth();
@@ -36,14 +50,18 @@ export default function DetailsCard() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const day = currentDate.getDate();
     const update = {
+      borrowedDate: `${year}-${month}-${day}`,
       id: id,
       email: user.email,
       displayName: user.displayName,
       returnDate,
     };
 
-    console.log(update);
     axios
       .post("/borrowbook", update, {
         headers: {

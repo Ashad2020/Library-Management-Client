@@ -53,9 +53,6 @@ const router = createBrowserRouter([
             <BorrowBook></BorrowBook>
           </PrivateRoute>
         ),
-        // loader: ({ params }) => {
-        //   fetch(`http://localhost:5000//api/v1/borrowedbooks/${params.email}`);
-        // },
       },
       {
         path: "/categoryDetails/:id",
@@ -63,11 +60,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/readbook",
-        element: <ReadBook></ReadBook>,
+        element: (
+          <PrivateRoute>
+            <ReadBook></ReadBook>
+          </PrivateRoute>
+        ),
       },
       {
         path: "bookdetails/:id",
-        element: <DetailsCard></DetailsCard>,
+        element: (
+          <PrivateRoute>
+            <DetailsCard></DetailsCard>
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -17,7 +17,7 @@ export default function BorrowBook() {
   };
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["borrowedbooks"],
+    queryKey: ["borrowedbooks", borrowedBooks],
     queryFn: getBook,
   });
   useEffect(() => {

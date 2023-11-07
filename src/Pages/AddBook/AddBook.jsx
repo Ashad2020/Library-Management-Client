@@ -27,7 +27,7 @@ export default function AddBook() {
         "Content-Type": "application/json",
       },
     });
-    if (res.data?.data?.insertedId) {
+    if (res?.data?.data?.insertedId) {
       toast.success("Product added successfully");
     }
   };
