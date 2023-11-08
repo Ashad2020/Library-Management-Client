@@ -23,8 +23,13 @@ export default function SignIn() {
     loginUser(email, password)
       .then((res) => {
         toast.success("Logged In successfully", { id: toastId });
-        if (res.user?.email) {
-          axios.post("/auth/access-token", { email: res.user?.email });
+
+        if (res?.user?.email) {
+          let obj = { email: res.user?.email };
+          res.user?.email === "admin@gmail.com"
+            ? (obj.role = "admin")
+            : (obj.role = "user");
+          axios.post("/auth/access-token", obj, { withCredentials: true });
           navigate("/");
         }
       })

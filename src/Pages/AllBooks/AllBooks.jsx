@@ -17,7 +17,9 @@ export default function AllBooks() {
     queryFn: getAllBooks,
   });
   const getAvailableBooks = async () => {
-    const res = await axios.get("/allbooks?quantity=quantity");
+    const res = await axios.get("/allbooks?quantity=quantity", {
+      withCredentials: true,
+    });
     setAllBooks(res?.data);
   };
 
