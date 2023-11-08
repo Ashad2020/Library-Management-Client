@@ -32,8 +32,9 @@ export default function AddBook() {
       },
       { withCredentials: true }
     );
-    if (res?.data?.data?.insertedId) {
-      toast.success("Product added successfully");
+    console.log(res);
+    if (res?.data?.insertedId) {
+      toast.success("Book added successfully");
     }
   };
 

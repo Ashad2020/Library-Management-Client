@@ -3,20 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
-const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+import toast from "react-hot-toast";
 
 export default function DetailsCard() {
   const { user } = useAuth();
@@ -69,7 +56,14 @@ export default function DetailsCard() {
         },
       })
       .then((response) => {
-        console.log(response.data);
+        if (response?.data?.insertedId) {
+          toast.success(
+            "You borrowed the book successfully. Please return it on time."
+          );
+        }
+        if (response?.data?.msg) {
+          toast.error("You cannot add it twice!");
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -97,7 +91,7 @@ export default function DetailsCard() {
               <div>
                 {data?.data?.quantity > 0 && (
                   <button className="btn btn-primary" onClick={openModal}>
-                    Open modal
+                    Borrow
                   </button>
                 )}
                 {parseInt(data?.data?.quantity) === 0 && (
@@ -107,7 +101,7 @@ export default function DetailsCard() {
                       className="btn btn-primary"
                       onClick={openModal}
                     >
-                      Open modal
+                      Borrow
                     </button>
                   </div>
                 )}
@@ -118,10 +112,10 @@ export default function DetailsCard() {
                     open
                   >
                     <div className="modal-box">
-                      <h3 className="font-bold text-lg">Hello!</h3>
-                      <p className="py-4">
-                        Press ESC key or click the button below to close
-                      </p>
+                      <h3 className="font-bold text-lg">
+                        Hello {user.displayName}!
+                      </h3>
+
                       <form method="dialog" onSubmit={handleSubmit}>
                         <label>
                           Return Date:

@@ -87,8 +87,13 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        <Link to="/" className="flex h-12 w-62">
-          <p>Logo</p>
+        <Link to="/" className="flex h-12 w-24">
+          <img
+            src="https://i.ibb.co/0ZXpxyY/Library.jpg"
+            alt="Library"
+            className="w-full object-cover"
+            border="0"
+          />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -155,12 +160,14 @@ export default function Navbar() {
                 <img src={user.photoURL} alt="Photo of user" />
               </div>
             </label>
-            <div>
+            <div className="text-sm md:text-xl">
               <a className="justify-between">{user.displayName}</a>
             </div>
 
             <div>
-              <button onClick={logOut}>Logout</button>
+              <button className="btn btn-ghost" onClick={logOut}>
+                Logout
+              </button>
             </div>
           </div>
         ) : (

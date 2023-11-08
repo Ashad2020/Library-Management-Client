@@ -30,7 +30,6 @@ export default function BorrowBook() {
       {isLoading && <p>Loading.......</p>}
       {!isLoading && (
         <div>
-          <p>Borrowed books length: {borrowedBooks?.length}</p>
           <div className="p-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {borrowedBooks?.length ? (
               borrowedBooks?.map((book) => (

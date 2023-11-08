@@ -1,8 +1,7 @@
-# React + Vite
+Live link:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Admin can add book and update book.
+- Users can borrow books and those books are stored in MongoDB using an API.
+- On the homepage, users can click on a category's name to see all bookss associated with that category.
+- Users can view the details of a book, and he/she can borrow it.
+- User can also return books from their borrow list.

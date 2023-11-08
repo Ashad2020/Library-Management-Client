@@ -1,5 +1,6 @@
 import Rating from "react-rating";
 import useAxios from "../../Hooks/useAxios";
+import toast from "react-hot-toast";
 
 export default function BorrowBookCard({
   book,
@@ -23,7 +24,12 @@ export default function BorrowBookCard({
     axios
       .delete(`/deletebook/${_id}`)
       .then((response) => {
-        console.log(response.data);
+        console.log(response?.data);
+        if (response?.data?.msg) {
+          toast.success(
+            "You borrowed the book successfully. Please return it on time."
+          );
+        }
       })
       .catch((error) => {
         console.error("Error:", error);

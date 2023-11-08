@@ -20,19 +20,22 @@ export default function CategoryDetails() {
     <>
       {isLoading && <p>Loading from categoryDetails</p>}
       {!isLoading && books?.length > 0 && (
-        <div className="p-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {books.map((book) => (
+        <div className="p-12 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {books?.map((book) => (
             <BookCard key={book._id} book={book} />
           ))}
         </div>
       )}
       {!isLoading && !books?.length && (
-        <img
-          src="https://i.ibb.co/yXWXYwH/no-product-found.png"
-          alt="no-product-found"
-          border="0"
-          className="mx-auto"
-        />
+        <div>
+          <img
+            src="https://i.ibb.co/VVxrb2M/opps.png"
+            alt="no-book-found"
+            border="0"
+            className="mx-auto"
+          />
+          <p className="text-center bold text-2xl">No Book Found</p>
+        </div>
       )}
     </>
   );

@@ -25,9 +25,9 @@ export default function Home() {
   }
   return (
     <>
-      <h2 className="text-4xl font-bold text-center  py-8">Shop by Brand</h2>
+      <h2 className="text-4xl text-center  py-8">Open Library</h2>
 
-      <div className="grid grid-cols-3 max-w-3xl mx-auto gap-4 my-8">
+      <div className="grid grid-cols-4 max-w-6xl mx-auto gap-4 my-8">
         {data?.data?.map((category) => {
           return (
             <CategoryCard key={category._id} category={category}></CategoryCard>
