@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../Hooks/useAxios";
 import CategoryCard from "../../Components/CategoryCard/CategoryCard";
+import Banner from "../../Components/Banner/Banner";
 
 export default function Home() {
   const axios = useAxios();
@@ -25,6 +26,7 @@ export default function Home() {
   }
   return (
     <>
+      <Banner></Banner>
       <h2 className="text-4xl text-center  py-8">Open Library</h2>
 
       <div className="grid grid-cols-4 max-w-6xl mx-auto gap-4 my-8">

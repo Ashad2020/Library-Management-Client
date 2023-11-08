@@ -10,7 +10,7 @@ export default function Main() {
   return (
     <>
       <Navbar></Navbar>
-      <Banner></Banner>
+
       <Outlet></Outlet>
       <Review></Review>
       <BookForAll></BookForAll>

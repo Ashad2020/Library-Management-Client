@@ -44,7 +44,7 @@ export default function AllBooks() {
             </button>
           </div>
           <div className="p-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {allBooks.map((book) => (
+            {allBooks?.map((book) => (
               <BookCardAll key={book._id} book={book} />
             ))}
           </div>

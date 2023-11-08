@@ -16,12 +16,11 @@ export default function SocialLogin() {
         if (res?.user?.email) {
           let obj = { email: res.user?.email };
           res.user?.email === "admin@gmail.com"
-            ? (obj.role = "admin")
+            ? (obj.role = "librarian")
             : (obj.role = "user");
           axios.post("/auth/access-token", obj, { withCredentials: true });
           navigate("/");
         }
-        navigate("/");
       })
       .catch((error) => toast.error(error.message));
   };
