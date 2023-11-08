@@ -13,16 +13,17 @@ export default function BorrowBook() {
 
   const getBook = async () => {
     const res = await axios.get(`/borrowedbooks/${user?.email}`);
+    setBorrowedBooks(res?.data);
     return res;
   };
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["borrowedbooks", borrowedBooks],
+    queryKey: ["borrowedbooks"],
     queryFn: getBook,
   });
-  useEffect(() => {
-    setBorrowedBooks(data?.data);
-  }, [data]);
+  // useEffect(() => {
+  //   setBorrowedBooks(data?.data);
+  // }, [data]);
 
   return (
     <>

@@ -23,6 +23,7 @@ export default function BookCard({ book }) {
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{bookName}</h2>
+        <p>Author Name: {authorName}</p>
         <p>Category Name: {category}</p>
         <div className="flex items-center">
           <span className="pr-2">Rating: </span>

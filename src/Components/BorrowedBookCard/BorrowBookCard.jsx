@@ -1,5 +1,4 @@
 import Rating from "react-rating";
-import { Link } from "react-router-dom";
 import useAxios from "../../Hooks/useAxios";
 
 export default function BorrowBookCard({
@@ -21,7 +20,6 @@ export default function BorrowBookCard({
   } = book;
 
   const handleClick = () => {
-    console.log(_id);
     axios
       .delete(`/deletebook/${_id}`)
       .then((response) => {

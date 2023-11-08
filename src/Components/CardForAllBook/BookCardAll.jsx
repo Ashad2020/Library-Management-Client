@@ -1,18 +1,9 @@
-import React from "react";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 export default function BookCardAll({ book }) {
-  const {
-    _id,
-    photoUrl,
-    bookName,
-    authorName,
-    category,
-    description,
-    rating,
-    quantity,
-  } = book;
+  const { _id, photoUrl, bookName, authorName, category, rating, quantity } =
+    book;
   return (
     <div className="card  bg-green-100 shadow-xl">
       <figure className="px-10 pt-10">
@@ -24,7 +15,8 @@ export default function BookCardAll({ book }) {
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{bookName}</h2>
-        <p>Category Name: {category}</p>
+        <p>Author Name: {authorName}</p>
+        <p>Category: {category}</p>
         <div className="flex items-center">
           <span className="pr-2">Rating: </span>
           <Rating initialRating={rating} readonly />
