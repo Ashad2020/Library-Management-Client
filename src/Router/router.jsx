@@ -12,6 +12,8 @@ import DetailsCard from "../Components/BookDetails/DetailsCard";
 import CategoryDetails from "../Pages/CategoryDetails/CategoryDetails";
 import ReadBook from "../Components/BookCard/ReadBook";
 import UpdateBook from "../Pages/UpdateBook/UpdateBook";
+import PDFFile from "../Components/PDFFile/PDFFile";
+import MyPDFViewer from "../Components/PDFFile/PDFFile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -62,7 +64,9 @@ const router = createBrowserRouter([
         path: "/readbook",
         element: (
           <PrivateRoute>
-            <ReadBook></ReadBook>
+            <MyPDFViewer></MyPDFViewer>
+            {/* <PDFFile></PDFFile> */}
+            {/* <ReadBook></ReadBook> */}
           </PrivateRoute>
         ),
       },

@@ -24,11 +24,8 @@ export default function BorrowBookCard({
     axios
       .delete(`/deletebook/${_id}`)
       .then((response) => {
-        console.log(response?.data);
         if (response?.data?.msg) {
-          toast.success(
-            "You borrowed the book successfully. Please return it on time."
-          );
+          toast.success("Book return successful");
         }
       })
       .catch((error) => {

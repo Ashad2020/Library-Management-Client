@@ -1,0 +1,19 @@
+import { Worker, Viewer } from "@react-pdf-viewer/core";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+const MyPDFViewer = () => {
+  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+
+  return (
+    <Worker
+      workerUrl={`https://unpkg.com/pdfjs-dist@${defaultLayoutPluginInstance.workerVersion}/build/pdf.worker.min.js`}
+    >
+      <Viewer
+        fileUrl="path/to/your/pdf/file.pdf"
+        plugins={[defaultLayoutPluginInstance]}
+      />
+    </Worker>
+  );
+};
+export default MyPDFViewer;

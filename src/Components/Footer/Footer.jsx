@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="footer p-10">
+    <footer className="md:footer p-10 text-center">
       <aside>
-        <Link to="/" className="flex h-12 w-24">
+        <Link to="/" className="flex justify-center md:h-12 md:w-24">
           <img
             src="https://i.ibb.co/0ZXpxyY/Library.jpg"
             alt="Library"
-            className="w-full object-cover"
+            className="md:w-full rounded-full md:object-cover"
             border="0"
           />
         </Link>
@@ -19,7 +19,7 @@ export default function Footer() {
       </aside>
       <nav>
         <header className="footer-title">Social</header>
-        <div className="grid grid-flow-col gap-4">
+        <div className="grid grid-flow-col gap-4 justify-center">
           <a>
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -45,7 +45,7 @@ export default function Navbar() {
             </li>
             <li className="text-xl">
               <NavLink
-                to={"/"}
+                to={"/addbook"}
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
@@ -59,7 +59,7 @@ export default function Navbar() {
             </li>
             <li className="text-xl">
               <NavLink
-                to={"/"}
+                to={"/allbooks"}
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
