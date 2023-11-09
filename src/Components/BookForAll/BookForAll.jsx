@@ -1,6 +1,6 @@
 export default function BookForAll() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 my-12 mx-4 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 py-12 px-4 gap-4 bg-[#F0F0F0] dark:bg-[#1D232A] dark:text-slate-400 ">
       <div className="card border-2 p-4">
         <div className="flex items-center h-full px-2 gap-2 ">
           <div>

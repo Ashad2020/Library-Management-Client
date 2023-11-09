@@ -37,7 +37,7 @@ export default function AllBooks() {
     <>
       {isLoading && <p className="text-2xl text-center">Loading.......</p>}
       {!isLoading && (
-        <div>
+        <div className="py-12">
           <div className="text-center">
             <button className="btn btn-primary" onClick={getAvailableBooks}>
               Filter by availability

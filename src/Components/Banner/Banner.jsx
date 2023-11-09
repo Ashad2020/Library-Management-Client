@@ -7,7 +7,7 @@ export default function Banner() {
           backgroundImage: "url(https://i.ibb.co/02p7Bvy/SASB-Picture-2.jpg)",
         }}
       >
-        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-overlay bg-opacity-60 dark:bg-opacity-90"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-3xl">
             <h1 className="mb-5 text-5xl font-bold">

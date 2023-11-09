@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="md:footer p-10 text-center">
+    <footer className="md:footer p-10 text-center bg-[#F0F0F0] dark:bg-[#1D232A] dark:text-slate-400 ">
       <aside>
-        <Link to="/" className="flex justify-center md:h-12 md:w-24">
+        <Link to="/" className="flex justify-center md:h-16 md:w-16">
           <img
             src="https://i.ibb.co/0ZXpxyY/Library.jpg"
             alt="Library"

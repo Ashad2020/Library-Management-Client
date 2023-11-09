@@ -1,9 +1,9 @@
 export default function Review() {
   return (
-    <div className="py-4 px-4">
+    <div className="bg-[#F2F2F2] dark:bg-[#1D232A] dark:text-slate-400 py-4 px-4">
       <h2 className="text-4xl font-bold text-center  py-8">Readers Review</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="card  text-sm border-4">
+        <div className="card  text-sm border-2">
           <div className="card-body">
             <div className="avatar flex justify-center">
               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -23,7 +23,7 @@ export default function Review() {
             </p>
           </div>
         </div>
-        <div className="card text-sm border-4">
+        <div className="card text-sm border-2">
           <div className="card-body">
             <div className="avatar flex justify-center">
               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -44,7 +44,7 @@ export default function Review() {
             </p>
           </div>
         </div>
-        <div className="card  text-sm border-4">
+        <div className="card  text-sm border-2">
           <div className="card-body">
             <div className="avatar flex justify-center">
               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -64,7 +64,7 @@ export default function Review() {
             </p>
           </div>
         </div>
-        <div className="card  text-sm border-4">
+        <div className="card  text-sm border-2">
           <div className="card-body">
             <div className="avatar flex justify-center">
               <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
